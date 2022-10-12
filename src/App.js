@@ -1,23 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from "react";
+
+import Header from "./Header";
+import CarContainer from "./CarContainer";
+import EditCarForm from "./EditCarForm";
 
 function App() {
+  const [cars, setCars] = useState([]);
+  const [sortTerm, setSortTerm] = useState('');
+  const [sortedCars, setSortedCars] = useState([]);
+  const [search, setSearch] = useState([''])
+
+
+
+  useEffect(()=>{
+    fetch('http://localhost:3000/cars').then(resp=>resp.json()).then(data=>{setCars(data); setSortedCars(data)});
+  },[])
+  console.log(cars);
+
+
+// Allows the user to sort the cars by make, model, price, and year
+function handleCategoryChange(category){
+  console.log(category);
+  if(category === ''){
+    setSortedCars(cars);
+  }if(category === 'Price'){
+    setSortedCars(cars.sort((a,b)=>
+      a.price - b.price
+    ))
+  }if(category === 'Year'){
+    setSortedCars(cars.sort((a,b)=> a.year-b.year))
+  }if(category === 'Make'){
+    setSortedCars(cars.sort((a,b)=>{
+      const aMake = a.make.toLowerCase();
+      const bMake = b.make.toLowerCase();
+      if(aMake < bMake){ return -1}
+      if(aMake > bMake){return 1}
+      else{return 0}
+    }))
+  }if(category === 'Model'){
+    setSortedCars(cars.sort((a,b)=>{
+      const aModel = a.model.toLowerCase();
+      const bModel = b.model.toLowerCase();
+      if(aModel < bModel){return -1}
+      if(aModel > bModel){return 1}
+      else{return 0}
+    }))
+  }
+}
+
+function handleSearch(term){
+  sortedCars.filter((car)=> car.make.toLowerCase().includes(term.toLowerCase()));
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header search={search} onSearch={handleSearch} setSearch={setSearch} sortTerm={sortTerm} setSortTerm={setSortTerm} handleCategoryChange = {handleCategoryChange}/>
+      <CarContainer cars={sortedCars}/>
+      <EditCarForm/>
+     
     </div>
   );
 }
