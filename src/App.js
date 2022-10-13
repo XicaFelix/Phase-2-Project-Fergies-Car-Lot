@@ -3,8 +3,10 @@ import React, {useState, useEffect} from "react";
 import Header from "./Header";
 import CarContainer from "./CarContainer";
 import EditCarForm from "./EditCarForm";
+import { Route } from "react-router-dom";
+import NewCarForm from "./NewCarForm";
 
-function App() {
+function Home(){
   const [cars, setCars] = useState([]);
   const [sortTerm, setSortTerm] = useState('');
   const [sortedCars, setSortedCars] = useState([]);
@@ -52,12 +54,27 @@ function handleSearch(term){
   sortedCars.filter((car)=> car.make.toLowerCase().includes(term.toLowerCase()));
 }
 
-  return (
-    <div className="App">
+  return(
+    <div>
       <Header search={search} onSearch={handleSearch} setSearch={setSearch} sortTerm={sortTerm} setSortTerm={setSortTerm} handleCategoryChange = {handleCategoryChange}/>
       <CarContainer cars={sortedCars}/>
-      <EditCarForm/>
-     
+    </div>
+  )
+}
+
+function App() {
+
+  return (
+    <div className="App">
+      <Route path='/home'>
+        <Home/>
+      </Route>
+      <Route path='/edit'>
+        <EditCarForm/>
+      </Route>
+      <Route path='/new'>
+        <NewCarForm/>
+      </Route>
     </div>
   );
 }

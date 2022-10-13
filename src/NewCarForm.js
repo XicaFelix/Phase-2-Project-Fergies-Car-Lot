@@ -1,19 +1,8 @@
 import { Button, Form} from "react-bootstrap";
-import { useState } from "react";
 
+function NewCarForm(){
 
-function EditCarForm(){
-const [formData, setFormData] = useState({
-    'make' : '',
-    'model': '',
-    'year': '',
-    'price': '',
-    'frontImage': '',
-    'sideImage': '',
-    'backImage': '',
-
-})
-    return (
+    return(
         <div>
         <Form>
         <Form.Group onChange={(e)=> console.log(e.target.value)}>
@@ -46,4 +35,4 @@ const [formData, setFormData] = useState({
     )
 }
 
-export default EditCarForm;
+export default NewCarForm;
