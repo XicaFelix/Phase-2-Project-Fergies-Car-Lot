@@ -1,11 +1,13 @@
 import Search from "./Search";
 import Sort from "./Sort"
+import Navigation from "./NavBar";
 
 
 function Header({onSearch, search, setSearch, sortTerm, setSortTerm, handleCategoryChange}){
 
     return (
         <div>
+            <Navigation/>
             <h3>
                 Welcome User!
             </h3>
