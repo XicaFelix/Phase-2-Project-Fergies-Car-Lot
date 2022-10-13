@@ -1,5 +1,5 @@
 import { Button, Form} from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 function NewCarForm(){
@@ -11,18 +11,30 @@ function NewCarForm(){
         frontImage: ' ',
         sideImage: '',
         backImage: '',
-    })
+         })
+         
     function handleChange(e){
         const name = e.target.name;
         let value = e.target.value;
         setNewCar({...newCar, 
         [name]: value,
          })
-         console.log(newCar);
-    }
+         console.log(newCar)}
+
+         function handleSubmit(event){
+            event.preventDefault();
+            console.log(newCar);
+            fetch('http://localhost:3000/cars',{
+                method:'POST',
+                headers:{'Content-Type': 'application/json',},
+                body: JSON.stringify(newCar),
+                }).then(resp=> resp.json).then(data=>console.log(data))
+                }
+
+        
     return(
         <div>
-        <Form onSubmit={(e)=> {e.preventDefault();console.log(newCar)}}>
+        <Form onSubmit={handleSubmit}>
         <Form.Group onChange={handleChange}  value={newCar.make}>
             <Form.Label>Make:</Form.Label>
             <Form.Control name="make" type="text" placeholder="Enter Make" />
