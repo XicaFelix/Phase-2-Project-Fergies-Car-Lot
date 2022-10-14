@@ -1,17 +1,17 @@
 import Form from 'react-bootstrap/Form'
 
 function Search({onSearch, search, setSearch}){
-    function handleSubmit(e){
-        e.preventDefault();
-        onSearch(search)
-    }
+    // function handleSubmit(e){
+    //     e.preventDefault();
+    //     onSearch(search)
+    // }
 
     return (
         <>
-        <Form onChange={(e)=>{setSearch(e.target.value)}} onSubmit={handleSubmit}>
+        <Form>
             <Form.Group controlId='searchForm'>
                 <Form.Label>Search</Form.Label>
-                <Form.Control type='text' placeholder='Search for a Car'></Form.Control>
+                <Form.Control type='text' placeholder='Search for a Car' onChange={(e)=>{setSearch(e.target.value); console.log(search)}}></Form.Control>
             </Form.Group>
         </Form>
         </>

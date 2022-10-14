@@ -1,5 +1,5 @@
 import { Navbar, Nav } from 'react-bootstrap';
-import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
+import { IndexLinkContainer } from 'react-router-bootstrap';
 
 function Navigation(){
    return( 

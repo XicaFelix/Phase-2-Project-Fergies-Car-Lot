@@ -24,6 +24,11 @@ function NewCarForm(){
          function handleSubmit(event){
             event.preventDefault();
             console.log(newCar);
+            setNewCar({...newCar,
+                
+            })
+
+
             fetch('http://localhost:3000/cars',{
                 method:'POST',
                 headers:{'Content-Type': 'application/json',},
