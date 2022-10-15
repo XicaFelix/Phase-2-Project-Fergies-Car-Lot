@@ -4,7 +4,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import { Button } from 'react-bootstrap';
 
 function CarCard({car}){
-    const {apr, image, make,model,price, year} = car;
+    const {apr, front, side, back, make,model,price, year} = car;
     // Set the Text to Appear When the Button is Hovered Over
     const[hoverText, setHoverText] = useState(false)
     return(
@@ -14,7 +14,7 @@ function CarCard({car}){
                 <Carousel.Item>
                     <img
                     className="d-block w-100"
-                    src={image.front}
+                    src={front}
                     alt="First slide"
                     />
                 <Carousel.Caption>
@@ -24,7 +24,7 @@ function CarCard({car}){
                 <Carousel.Item>
                     <img
                     className="d-block w-100"
-                    src={image.side}
+                    src={side}
                     alt="Second slide"
                     />
 
@@ -35,7 +35,7 @@ function CarCard({car}){
                 <Carousel.Item>
                     <img
                     className="d-block w-100"
-                    src={image.back}
+                    src={back}
                     alt="Third slide"
                     />
 

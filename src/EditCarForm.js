@@ -1,18 +1,10 @@
 import { Button, Form} from "react-bootstrap";
-import { useState } from "react";
 
 
-function EditCarForm(){
-const [formData, setFormData] = useState({
-    'make' : '',
-    'model': '',
-    'year': '',
-    'price': '',
-    'frontImage': '',
-    'sideImage': '',
-    'backImage': '',
 
-})
+
+function EditCarForm({formData, onFormData}){
+
     return (
         <div>
         <div>
