@@ -2,19 +2,19 @@ import Sort from "./Sort"
 import Navigation from "./NavBar";
 import { LoginContext } from "./Providers/LoginData";
 import { useContext } from "react";
-
+import { Container } from "react-bootstrap";
 
 function Header({ sortTerm, setSortTerm, handleCategoryChange}){
     const {user, setUser} = useContext(LoginContext);
 
     return (
-        <div>
+        <Container fluid>
             <Navigation/>
-            <h3>
+            <h3 style={{display: 'flex', justifyContent:'center'}}>
                 Welcome {user.username}!
             </h3>
             <Sort sortTerm={sortTerm} setSortTerm={setSortTerm} handleCategoryChange={handleCategoryChange}/>
-        </div>)
+        </Container>)
 }
 
 export default Header;

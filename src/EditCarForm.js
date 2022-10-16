@@ -2,6 +2,7 @@ import { Button, Form} from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useContext } from "react";
 import { EditDataContext } from "./Providers/EditFormData";
+import Navigation from "./NavBar";
 
 function EditCarForm({}){
     const {formData, setFormData, editKey, setEditKey} = useContext(EditDataContext);
@@ -34,7 +35,7 @@ function EditCarForm({}){
     return (
         <div>
         <div>
-            
+           <Navigation/> 
         </div>
         <Form onSubmit={handleSubmit}>
         <Form.Group>

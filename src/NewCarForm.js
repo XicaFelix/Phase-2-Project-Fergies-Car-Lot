@@ -1,6 +1,7 @@
 import { Button, Form} from "react-bootstrap";
 import {useState } from "react";
 import { useHistory } from "react-router-dom";
+import Navigation from "./NavBar";
 
 
 function NewCarForm(){
@@ -42,6 +43,9 @@ function NewCarForm(){
         
     return(
         <div>
+            <div>
+                <Navigation/>
+            </div>
         <Form onSubmit={handleSubmit}>
         <Form.Group onChange={handleChange}  value={newCar.make}>
             <Form.Label>Make:</Form.Label>

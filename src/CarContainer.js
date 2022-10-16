@@ -1,10 +1,11 @@
 import CarList from "./CarList"
+import { Container } from "react-bootstrap";
 
 function CarContainer({cars}){
 
-    return (<div>
+    return (<Container fluid>
         <CarList cars={cars}/>
-        </div>)
+        </Container>)
 }
 
 export default CarContainer;
