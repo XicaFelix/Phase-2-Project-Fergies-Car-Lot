@@ -21,10 +21,10 @@ function LoginPage(){
     }
 
     return (
-        <div>
-            <Container fluid>
-                <h1>Welcome to Fergie's Car Dealership</h1>
-                <h2>Please Login</h2>
+            <Container fluid style={{backgroundColor: 'black' }}>
+                <div>
+                <h1 style={{color: 'whitesmoke'}} >Welcome to Fergie's Car Dealership</h1>
+                <h2 style={{color: 'whitesmoke'}}>Please Login</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
                     <Form.Label>Username</Form.Label>
@@ -36,8 +36,8 @@ function LoginPage(){
                 </Form.Group>
                 <Button type="submit">Login</Button>
             </Form>
+            </div>
             </Container>
-        </div>
     )
 }
 

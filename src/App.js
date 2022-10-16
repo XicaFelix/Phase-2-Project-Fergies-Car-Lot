@@ -13,7 +13,7 @@ import { LoginProvider } from "./Providers/LoginData";
 function App() {
 
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor: 'black'}}>
       <LoginProvider>
         <EditDataProvider>
           <Route path='/home'>
