@@ -46,7 +46,7 @@ function NewCarForm(){
             <div>
                 <Navigation/>
             </div>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} style={{color: 'whitesmoke'}}>
         <Form.Group onChange={handleChange}  value={newCar.make}>
             <Form.Label>Make:</Form.Label>
             <Form.Control name="make" type="text" placeholder="Enter Make" />
@@ -75,7 +75,7 @@ function NewCarForm(){
             <Form.Label>Back Image:</Form.Label>
             <Form.Control  name='back' type="text" placeholder="Image URL"onChange={handleChange} value={newCar.backImage}/>
         </Form.Group>
-        <Button type="submit">Click to Submit</Button>
+        <Button variant='secondary' type="submit" style={{marginTop: 10, marginBottom: 100}}>Click to Submit</Button>
         </Form>
         </div>
     )
