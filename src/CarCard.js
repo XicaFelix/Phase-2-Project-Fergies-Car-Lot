@@ -71,14 +71,14 @@ function CarCard({car}){
          </Carousel>
             <Card.Body>
                 
-                <Button variant='outline-secondary' size='lg'onClick={handleClick} onMouseEnter={()=> setHoverText(true)} onMouseLeave={()=> setHoverText(false)}> 
+                <Button variant='outline-secondary' size='lg'style={{marginBottom: 5}} onClick={handleClick} onMouseEnter={()=> setHoverText(true)} onMouseLeave={()=> setHoverText(false)}> 
                    {hoverText? <Card.Title> Edit Car</Card.Title>: <Card.Title> {make} {model}</Card.Title> }
                 </Button>
-                <Card.Text> Make: {make}</Card.Text>
-                <Card.Text> Model: {model}</Card.Text>
-                <Card.Text> Year: {year}</Card.Text>
+                <Card.Text> <span style={{fontStyle: 'italic'}}> Make: </span>{make}</Card.Text>
+                <Card.Text> <span style={{fontStyle: 'italic'}} >Model: </span>{model}</Card.Text>
+                <Card.Text> <span style={{fontStyle: 'italic'}} > Year:</span> {year}</Card.Text>
                 <span>
-                    Price: {price}  
+                   <span style={{fontStyle: 'italic'}} > Price: </span>{price}  
                     <i className="bi bi-tag"></i>
                 </span>
             </Card.Body>
