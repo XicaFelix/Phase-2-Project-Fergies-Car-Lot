@@ -34,7 +34,7 @@ function CarCard({car}){
 
     return(
         <div className='col'>
-        <Card>
+        <Card bg='dark' text='light' border='light' style={{marginBottom: 10}}>
             <Carousel>
                 <Carousel.Item>
                     <img
