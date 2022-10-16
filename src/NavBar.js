@@ -4,11 +4,11 @@ import { IndexLinkContainer } from 'react-router-bootstrap';
 function Navigation(){
    return( 
     <>
-    <Navbar expand='lg'>
+    <Navbar expand='lg' bg='dark' variant='dark' style={{marginBottom: 25}}>
       <IndexLinkContainer to='/home' activeClassName='selected'>
       <Navbar.Brand href="#home">Fergie's Car Dealership</Navbar.Brand>
       </IndexLinkContainer>
-      <Nav>
+      <Nav fill className="justify-content-end">
         <IndexLinkContainer to='/home' activeClassName='selected'>
           <Nav.Link href='#home'>Home</Nav.Link>
         </IndexLinkContainer>
