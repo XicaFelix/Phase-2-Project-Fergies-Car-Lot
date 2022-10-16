@@ -4,7 +4,7 @@ import Header from "./Header";
 import CarContainer from "./CarContainer";
 
 
-function Home({formData, onFormData, setEditKey}){
+function Home(){
   const [cars, setCars] = useState([]);
   const [sortTerm, setSortTerm] = useState('All');
   const [sortedCars, setSortedCars] = useState([]);
@@ -54,7 +54,7 @@ const displayedCars= cars.filter((car)=>{
   return(
     <div>
       <Header search={search} setSearch={setSearch} sortTerm={sortTerm} setSortTerm={setSortTerm} handleCategoryChange = {handleCategoryChange}/>
-      <CarContainer cars={sortedCars} formData={formData} onFormData={onFormData} setEditKey={setEditKey}/>
+      <CarContainer cars={sortedCars}/>
     </div>
   )
 }

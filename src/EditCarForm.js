@@ -1,26 +1,33 @@
 import { Button, Form} from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import { useContext } from "react";
+import { EditDataContext } from "./Providers/EditFormData";
 
-function EditCarForm({formData, onFormData, editKey }){
+function EditCarForm({}){
+    const {formData, setFormData, editKey, setEditKey} = useContext(EditDataContext);
+
+    const history = useHistory();
+
 
     function handleChange(event){
         const name = event.target.name;
         let value= event.target.value;
-        onFormData({...formData,
+        setFormData({...formData,
             [name]: value,
         })
         console.log(formData)
+        console.log(editKey)
     }
 
     function handleSubmit(event){
         event.preventDefault();
-        fetch(`http://localhost:30001/cars/${editKey}`,{
+        fetch(`http://localhost:3000/cars/${editKey}`,{
         method: 'PATCH',
         headers: {'Content-Type': 'application/json',},
         body: JSON.stringify(formData),
     }).then(resp=> resp.json).then(data=>{
         console.log(data); 
-        useHistory.pushState('/home') })
+        history.push('/home') })
     }
 
 

@@ -1,9 +1,9 @@
 import CarList from "./CarList"
 
-function CarContainer({cars, formData, onFormData, setEditKey}){
+function CarContainer({cars}){
 
     return (<div>
-        <CarList cars={cars} formData={formData} onFormData={onFormData} setEditKey={setEditKey}/>
+        <CarList cars={cars}/>
         </div>)
 }
 

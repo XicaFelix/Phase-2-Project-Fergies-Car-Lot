@@ -1,16 +1,19 @@
 import { Button, Form} from "react-bootstrap";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 
 function NewCarForm(){
+    const history = useHistory()
+
     const [newCar, setNewCar]=useState({
         make : 's',
         model: '',
         year: '',
         price: '',
-        frontImage: ' ',
-        sideImage: '',
-        backImage: '',
+        front: ' ',
+        side: '',
+        back: '',
          })
          
     function handleChange(e){
@@ -33,7 +36,7 @@ function NewCarForm(){
                 method:'POST',
                 headers:{'Content-Type': 'application/json',},
                 body: JSON.stringify(newCar),
-                }).then(resp=> resp.json).then(data=>console.log(data))
+                }).then(resp=> resp.json).then(data=>{console.log(data);history.push('/home') })
                 }
 
         
@@ -58,15 +61,15 @@ function NewCarForm(){
         </Form.Group>
         <Form.Group onChange={handleChange}>
             <Form.Label>Front Image:</Form.Label>
-            <Form.Control  name='frontImage' type="text" placeholder="Image URL" onChange={handleChange} value={newCar.frontImage}/>
+            <Form.Control  name='front' type="text" placeholder="Image URL" onChange={handleChange} value={newCar.frontImage}/>
         </Form.Group>
         <Form.Group>
             <Form.Label>Side Image:</Form.Label>
-            <Form.Control  name='sideImage' type="text" placeholder="Image URL" onChange={handleChange}  value={newCar.sideImage}/>
+            <Form.Control  name='side' type="text" placeholder="Image URL" onChange={handleChange}  value={newCar.sideImage}/>
         </Form.Group>
         <Form.Group>
             <Form.Label>Back Image:</Form.Label>
-            <Form.Control  name='backImage' type="text" placeholder="Image URL"onChange={handleChange} value={newCar.backImage}/>
+            <Form.Control  name='back' type="text" placeholder="Image URL"onChange={handleChange} value={newCar.backImage}/>
         </Form.Group>
         <Button type="submit">Click to Submit</Button>
         </Form>

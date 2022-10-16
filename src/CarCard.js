@@ -1,18 +1,23 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
 import { Button } from 'react-bootstrap';
+import { EditDataContext } from './Providers/EditFormData';
 
-function CarCard({car, formData, setFormData, id, setEditKey}){
-    const {front, side, back, make,model,price, year} = car;
+function CarCard({car}){
+    const {front, side, back, make,model,price, year, id} = car;
+
     const history = useHistory();
-    // setEditKey(id);
+
+    const {formData, setFormData, editKey, setEditKey} = useContext(EditDataContext);
+    
 
     // Set the Text to Appear When the Button is Hovered Over
     const[hoverText, setHoverText] = useState(false);
 
     function handleClick(){
+        setEditKey(id);
         const editData = {...formData, 
             'make': make,
             'model': model,
@@ -23,7 +28,8 @@ function CarCard({car, formData, setFormData, id, setEditKey}){
             'back': back,
         }
         setFormData(editData);
-    history.pushState('/.edit')
+        console.log(editKey);
+    history.push('/edit')
     }
 
     return(

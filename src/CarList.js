@@ -1,8 +1,8 @@
 import CarCard from "./CarCard"
 
 
-function CarList({cars, formData, onFormData, setEditKey}){
-        const listOfCars = cars.map((car)=> <CarCard key={car.id} car={car}formData={formData} onFormData={onFormData} setEditKey={setEditKey} id={car.id} />)
+function CarList({cars}){
+        const listOfCars = cars.map((car)=> <CarCard key={car.id} car={car} id={car.id} />)
 
     return (<div className="row row-cols-* row-cols-md-2 g-4">
        {/*  Render Car Cards Here */}
