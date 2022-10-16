@@ -1,41 +1,60 @@
 import { Button, Form} from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
+function EditCarForm({formData, onFormData, editKey }){
 
+    function handleChange(event){
+        const name = event.target.name;
+        let value= event.target.value;
+        onFormData({...formData,
+            [name]: value,
+        })
+        console.log(formData)
+    }
 
+    function handleSubmit(event){
+        event.preventDefault();
+        fetch(`http://localhost:30001/cars/${editKey}`,{
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json',},
+        body: JSON.stringify(formData),
+    }).then(resp=> resp.json).then(data=>{
+        console.log(data); 
+        useHistory.pushState('/home') })
+    }
 
-function EditCarForm({formData, onFormData}){
 
     return (
         <div>
         <div>
             
         </div>
-        <Form>
-        <Form.Group onChange={(e)=> console.log(e.target.value)}>
+        <Form onSubmit={handleSubmit}>
+        <Form.Group>
             <Form.Label>Make:</Form.Label>
-            <Form.Control type="text" placeholder="Enter Make"/>
+            <Form.Control name = 'make' type="text" placeholder="Enter Make" onChange={handleChange} value={formData.make}/>
         </Form.Group>
         <Form.Group>
             <Form.Label>Model:</Form.Label>
-            <Form.Control type="text" placeholder="Enter Model"/>
+            <Form.Control name='model' type="text" placeholder="Enter Model" onChange={handleChange} value={formData.model}/>
         </Form.Group>
         <Form.Group>
             <Form.Label>Year:</Form.Label>
-            <Form.Control type="text" placeholder="Enter Year"/>
+            <Form.Control name='year' type="text" placeholder="Enter Year" onChange={handleChange} value={formData.year}/>
         </Form.Group>
         <Form.Group>
             <Form.Label>Price:</Form.Label>
-            <Form.Control type="text" placeholder="Enter Price"/>
+            <Form.Control name='price' type="text" placeholder="Enter Price" onChange={handleChange} value={formData.price}/>
         </Form.Group>
         <Form.Group>
             <Form.Label>Front Image:</Form.Label>
-            <Form.Control type="text" placeholder="Image URL"/>
+            <Form.Control name='front' type="text" placeholder="Image URL" onChange={handleChange} value={formData.front}/>
             <Form.Label>Side Image:</Form.Label>
-            <Form.Control type="text" placeholder="Image URL"/>
+            <Form.Control name='side' type="text" placeholder="Image URL" onChange={handleChange} value={formData.side}/>
             <Form.Label>Back Image:</Form.Label>
-            <Form.Control type="text" placeholder="Image URL"/>
+            <Form.Control name='back' type="text" placeholder="Image URL" onChange={handleChange} value={formData.back}/>
         </Form.Group>
-        <Button type="submit" onSubmit={(e)=> {e.preventDefault();console.log(e.target.value)}}>Click to Submit</Button>
+        <Button type="submit">Click to Submit</Button>
         </Form>
         </div>
     )

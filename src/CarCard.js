@@ -1,12 +1,31 @@
 import { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
 import { Button } from 'react-bootstrap';
 
-function CarCard({car}){
-    const {apr, front, side, back, make,model,price, year} = car;
+function CarCard({car, formData, setFormData, id, setEditKey}){
+    const {front, side, back, make,model,price, year} = car;
+    const history = useHistory();
+    // setEditKey(id);
+
     // Set the Text to Appear When the Button is Hovered Over
-    const[hoverText, setHoverText] = useState(false)
+    const[hoverText, setHoverText] = useState(false);
+
+    function handleClick(){
+        const editData = {...formData, 
+            'make': make,
+            'model': model,
+            'year': year,
+            'price': price,
+            'front': front,
+           'side': side,
+            'back': back,
+        }
+        setFormData(editData);
+    history.pushState('/.edit')
+    }
+
     return(
         <div className='col'>
         <Card>
@@ -46,7 +65,7 @@ function CarCard({car}){
          </Carousel>
             <Card.Body>
                 
-                <Button variant='outline-secondary' size='lg' onMouseEnter={()=> setHoverText(true)} onMouseLeave={()=> setHoverText(false)}> 
+                <Button variant='outline-secondary' size='lg'onClick={handleClick} onMouseEnter={()=> setHoverText(true)} onMouseLeave={()=> setHoverText(false)}> 
                    {hoverText? <Card.Title> Edit Car</Card.Title>: <Card.Title> {make} {model}</Card.Title> }
                 </Button>
                 <Card.Text> Make: {make}</Card.Text>
