@@ -47,13 +47,9 @@ function handleCategoryChange(category){
   }
 
 
-const displayedCars= cars.filter((car)=>{
-  car.make.toLowerCase()
-})
-
   return(
     <div>
-      <Header search={search} setSearch={setSearch} sortTerm={sortTerm} setSortTerm={setSortTerm} handleCategoryChange = {handleCategoryChange}/>
+      <Header sortTerm={sortTerm} setSortTerm={setSortTerm} handleCategoryChange = {handleCategoryChange}/>
       <CarContainer cars={sortedCars}/>
     </div>
   )

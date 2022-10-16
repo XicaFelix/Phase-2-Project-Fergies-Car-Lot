@@ -1,17 +1,18 @@
-import Search from "./Search";
 import Sort from "./Sort"
 import Navigation from "./NavBar";
+import { LoginContext } from "./Providers/LoginData";
+import { useContext } from "react";
 
 
-function Header({onSearch, search, setSearch, sortTerm, setSortTerm, handleCategoryChange}){
+function Header({ sortTerm, setSortTerm, handleCategoryChange}){
+    const {user, setUser} = useContext(LoginContext);
 
     return (
         <div>
             <Navigation/>
             <h3>
-                Welcome User!
+                Welcome {user.username}!
             </h3>
-            <Search onSearch={onSearch} setSearch={setSearch} search={search}/>
             <Sort sortTerm={sortTerm} setSortTerm={setSortTerm} handleCategoryChange={handleCategoryChange}/>
         </div>)
 }
