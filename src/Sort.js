@@ -8,7 +8,7 @@ function Sort({ sortTerm, setSortTerm, handleCategoryChange}){
     <div>
       <br/>
       <form>
-        <label htmlFor="sort">Sort Cars</label>
+        <label htmlFor="sort" style={{color: 'whitesmoke', marginRight: 7, fontSize: 18}}>Sort Cars</label>
         <select name="sort" id='sort' onChange={onCategoryChange}>
         <option value = 'All'>All</option>
           <option value='Year'>Year</option>
