@@ -21,7 +21,7 @@ function LoginPage(){
     }
 
     return (
-            <Container fluid style={{backgroundColor: 'black' }}>
+            <Container fluid style={{backgroundColor: 'black', color: 'whitesmoke' }}>
                 <div>
                 <h1 style={{color: 'whitesmoke'}} >Welcome to Fergie's Car Dealership</h1>
                 <h2 style={{color: 'whitesmoke'}}>Please Login</h2>
@@ -34,7 +34,7 @@ function LoginPage(){
                     <Form.Label>Password</Form.Label>
                     <Form.Control onChange={handleChange} type="password" name="password" value={user.password}/>
                 </Form.Group>
-                <Button type="submit">Login</Button>
+                <Button variant='secondary' type="submit" style={{marginTop: 25, marginBottom: 400}}>Login</Button>
             </Form>
             </div>
             </Container>
