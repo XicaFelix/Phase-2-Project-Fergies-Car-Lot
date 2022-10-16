@@ -15,6 +15,9 @@ function Navigation(){
         <IndexLinkContainer to='/new' activeClassName='selected'>
           <Nav.Link href='#addCar'>Add Car</Nav.Link>
         </IndexLinkContainer>
+        <IndexLinkContainer to='/' activeClassName='selected'>
+          <Nav.Link href='#logout'>Logout</Nav.Link>
+        </IndexLinkContainer>
       </Nav>
     </Navbar>
     </>
