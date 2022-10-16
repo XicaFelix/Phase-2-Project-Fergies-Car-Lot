@@ -37,7 +37,7 @@ function EditCarForm({}){
         <div>
            <Navigation/> 
         </div>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} style={{color: 'whitesmoke'}}>
         <Form.Group>
             <Form.Label>Make:</Form.Label>
             <Form.Control name = 'make' type="text" placeholder="Enter Make" onChange={handleChange} value={formData.make}/>
@@ -62,7 +62,7 @@ function EditCarForm({}){
             <Form.Label>Back Image:</Form.Label>
             <Form.Control name='back' type="text" placeholder="Image URL" onChange={handleChange} value={formData.back}/>
         </Form.Group>
-        <Button type="submit">Click to Submit</Button>
+        <Button variant='secondary' type="submit" style={{marginTop: 25, marginBottom: 100}}>Click to Submit</Button>
         </Form>
         </div>
     )
