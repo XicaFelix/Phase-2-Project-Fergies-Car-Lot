@@ -8,9 +8,9 @@ function Header({ sortTerm, setSortTerm, handleCategoryChange}){
     const {user, setUser} = useContext(LoginContext);
 
     return (
-        <Container fluid color="black">
+        <Container fluid>
             <Navigation/>
-            <h3 style={{display: 'flex', justifyContent:'center'}}>
+            <h3 style={{display: 'flex', justifyContent:'center', color: 'whitesmoke'}}>
                 Welcome {user.username}!
             </h3>
             <Sort sortTerm={sortTerm} setSortTerm={setSortTerm} handleCategoryChange={handleCategoryChange}/>

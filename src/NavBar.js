@@ -4,7 +4,7 @@ import { IndexLinkContainer } from 'react-router-bootstrap';
 function Navigation(){
    return( 
     <>
-    <Navbar expand='lg' bg='dark' variant='dark' style={{marginBottom: 25}}>
+    <Navbar expand='lg' bg='dark' variant='dark' sticky='top' style={{marginBottom: 25}}>
       <IndexLinkContainer to='/home' activeClassName='selected'>
       <Navbar.Brand href="#home">Fergie's Car Dealership</Navbar.Brand>
       </IndexLinkContainer>
