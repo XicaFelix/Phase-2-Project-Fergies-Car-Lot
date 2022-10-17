@@ -10,7 +10,9 @@ The 'dealer' can also add new cars to the invetory by navigating to the "Add Car
 
 
 ## Unique Features
-There are a few features I find really cool about this project. First, this project utilizes React-Bootstrap as the UI library. Utilizing Bootstrap enabled me to create unique components with pre-determined styling. These components, such as the forms, would have been more labor intensive to create using vanilla Javascript.
+There are a few features I find really cool about this project. First, this project utilizes React-Bootstrap as the UI library. Utilizing Bootstrap enabled me to create unique components with pre-determined styling. These components, such as the forms, would have been more labor intensive to create using vanilla Javascript. A great example would be the image carousel displayed for each car. Creating a feature like this in Javascript would be extremely tedious. 
+
+My other favorite feature is the login/logout functionality. 
 
 ## Areas to Expand/Explore
 
