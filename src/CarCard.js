@@ -11,7 +11,26 @@ function CarCard({car}){
     const history = useHistory();
 
     const {formData, setFormData, editKey, setEditKey} = useContext(EditDataContext);
-    
+
+    let thousands = '';
+    let hundreds = '';
+
+    function getDollars(price){
+        if(price.toString().length === 5){
+            thousands = price.toString().slice(0,2);
+            hundreds = price.toString().slice(2);
+            console.log(thousands, hundreds)
+            return (thousands, hundreds);
+        }else{
+            thousands = price.toString().slice(0,3);
+            hundreds = price.toString().slice(3);
+            console.log(thousands, hundreds)
+            return (thousands, hundreds);
+        }
+    }
+
+    getDollars(price);
+
 
     // Set the Text to Appear When the Button is Hovered Over
     const[hoverText, setHoverText] = useState(false);
@@ -78,7 +97,7 @@ function CarCard({car}){
                 <Card.Text> <span style={{fontStyle: 'italic'}} >Model: </span>{model}</Card.Text>
                 <Card.Text> <span style={{fontStyle: 'italic'}} > Year:</span> {year}</Card.Text>
                 <span>
-                   <span style={{fontStyle: 'italic'}} > Price: </span>{price}  
+                   <span style={{fontStyle: 'italic'}} > Price: </span>${`${thousands},${hundreds}  `}  
                     <i className="bi bi-tag"></i>
                 </span>
             </Card.Body>
