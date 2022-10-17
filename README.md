@@ -12,9 +12,11 @@ The 'dealer' can also add new cars to the invetory by navigating to the "Add Car
 ## Unique Features
 There are a few features I find really cool about this project. First, this project utilizes React-Bootstrap as the UI library. Utilizing Bootstrap enabled me to create unique components with pre-determined styling. These components, such as the forms, would have been more labor intensive to create using vanilla Javascript. A great example would be the image carousel displayed for each car. Creating a feature like this in Javascript would be extremely tedious. 
 
-My other favorite feature is the login/logout functionality. 
+My other favorite feature is the login/logout functionality. With the help of the useContext Hook I was able to mock login/logout behavior. The login/logout behavior creates a pseudo-validation wall. I mean that a user "can't" see the car inventory without logging. 
+
 
 ## Areas to Expand/Explore
+
 
 ## Requirements
 * Please make sure json-server is installed (this will run the backend API)
