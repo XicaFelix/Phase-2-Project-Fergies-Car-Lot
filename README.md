@@ -6,9 +6,11 @@ Fergie's Car Dealership is a single page application built using React and Javas
 
 The 'car dealer' can log-in to the app and then see all of the cars currently listed in their inventory. They have the ability to edit a specific car by clicking on that car's edit button. Then, they are presented with a screen pre-filled with the current details for that car, which they can edit, and submit. Submitting their changes updates the json-server and re-renders the home page with the updated car inventory and details.
 
+The 'dealer' can also add new cars to the invetory by navigating to the "Add Car" link on the NavBar. From there the 'dealer' can add in image URLs and other details for the new car. Once they submit the form, they will be taken back to the re-rendered home page. The home page will display the new car as part of its inventory. 
 
 
 ## Unique Features
+There are a few features I find really cool about this project. First, this project utilizes React-Bootstrap as the UI library. Utilizing Bootstrap enabled me to create unique components with pre-determined styling. These components, such as the forms, would have been more labor intensive to create using vanilla Javascript.
 
 ## Areas to Expand/Explore
 
