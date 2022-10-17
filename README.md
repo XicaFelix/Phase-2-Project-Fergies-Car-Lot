@@ -19,10 +19,15 @@ My other favorite feature is the login/logout functionality. With the help of th
 There are several areas to improve upon/explore in this project. Here are a few ideas
 
 1. Login-Logout Functionality
+    - Make it so that when a user logs out they see a separate log-out screen
+    - Once logged out, the log-in page is blank (username, password fields are empty)
 2. Deleting Cars
+    - Allow users to delete cars from the inventory
 3. Sort Function
+    - The current sort function is delayed because of State, find a way to eliminate this delay/work around it
 4. New Features
     - Search Function
+        - There is a search function component, but it doesn't work. Find out why
 
 
 ## Requirements
