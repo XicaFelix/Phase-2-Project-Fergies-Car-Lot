@@ -16,6 +16,13 @@ My other favorite feature is the login/logout functionality. With the help of th
 
 
 ## Areas to Expand/Explore
+There are several areas to improve upon/explore in this project. Here are a few ideas
+
+1. Login-Logout Functionality
+2. Deleting Cars
+3. Sort Function
+4. New Features
+    - Search Function
 
 
 ## Requirements
