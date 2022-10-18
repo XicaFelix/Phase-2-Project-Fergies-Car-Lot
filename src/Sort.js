@@ -1,16 +1,17 @@
+import { useEffect } from "react";
+
 function Sort({ sortTerm, setSortTerm, handleCategoryChange}){
-  function onCategoryChange(e){
-    setSortTerm((sortTerm)=> sortTerm = e.target.value)
-    
-    handleCategoryChange(sortTerm);
-  }
+
+  useEffect(()=>{
+    handleCategoryChange(sortTerm)
+  }, [sortTerm])
 
     return (
     <div>
       <br/>
       <form>
         <label htmlFor="sort" style={{color: 'whitesmoke', marginRight: 7, fontSize: 18}}>Sort Cars</label>
-        <select name="sort" id='sort' onChange={onCategoryChange}>
+        <select name="sort" id='sort' onChange={(e)=> setSortTerm((sortTerm)=> sortTerm=e.target.value)}>
         <option value = 'All'>All</option>
           <option value='Year'>Year</option>
           <option value='Model'>Model</option>
