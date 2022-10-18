@@ -1,6 +1,7 @@
 function Sort({ sortTerm, setSortTerm, handleCategoryChange}){
   function onCategoryChange(e){
-    setSortTerm(e.target.value)
+    setSortTerm((sortTerm)=> sortTerm = e.target.value)
+    
     handleCategoryChange(sortTerm);
   }
 
