@@ -19,12 +19,12 @@ function CarCard({car}){
         if(price.toString().length === 5){
             thousands = price.toString().slice(0,2);
             hundreds = price.toString().slice(2);
-            console.log(thousands, hundreds)
+            // console.log(thousands, hundreds)
             return (thousands, hundreds);
         }else{
             thousands = price.toString().slice(0,3);
             hundreds = price.toString().slice(3);
-            console.log(thousands, hundreds)
+            // console.log(thousands, hundreds)
             return (thousands, hundreds);
         }
     }

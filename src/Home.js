@@ -9,6 +9,7 @@ function Home(){
   const [sortTerm, setSortTerm] = useState('All');
   const [sortedCars, setSortedCars] = useState([]);
   const [search, setSearch] = useState([''])
+  let newCars=[];
 
 
 
@@ -21,7 +22,7 @@ function Home(){
 // Allows the user to sort the cars by make, model, price, and year
 function handleCategoryChange(category){
   console.log(category); 
-  const newCars = cars.sort((car1, car2)=>{
+   newCars = cars.sort((car1, car2)=>{
       if(category.toLowerCase() === 'price'){
         return(car1.price - car2.price)
       } if (category.toLowerCase() === 'year'){
@@ -42,15 +43,20 @@ function handleCategoryChange(category){
         }
       }
   })
-  setSortedCars(newCars);
+  console.log('sorted cars 1', sortedCars);
+  setSortedCars((sortedCars)=>newCars);
+  return setSortedCars(newCars);
   
   }
-
+  console.log('Sorted Cars 2', sortedCars);
+ 
 
   return(
     <div>
       <Header sortTerm={sortTerm} setSortTerm={setSortTerm} handleCategoryChange = {handleCategoryChange}/>
-      <CarContainer cars={sortedCars}/>
+      {/* <CarContainer cars={sortedCars}/> */}
+      {sortTerm === 'All'? ( <CarContainer cars= {cars}/>): (<CarContainer cars={sortedCars} key={sortedCars.id}/>) }
+      
     </div>
   )
 }
