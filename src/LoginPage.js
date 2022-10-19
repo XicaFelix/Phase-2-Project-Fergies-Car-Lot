@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext} from "react";
 import { useHistory } from "react-router-dom";
 import { LoginContext } from "./Providers/LoginData";
 import { Form, Button, Container } from "react-bootstrap";
@@ -16,8 +16,9 @@ function LoginPage(){
         })
     }
 
-    function handleSubmit(){
-        history.push('/home')
+    function handleSubmit(e){
+        e.preventDefault();
+        history.push('/home/logged-in');
     }
 
     return (

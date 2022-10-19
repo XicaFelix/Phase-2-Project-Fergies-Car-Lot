@@ -5,7 +5,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import { Button } from 'react-bootstrap';
 import { EditDataContext } from './Providers/EditFormData';
 
-function CarCard({car}){
+function CarCard({car, onDelete}){
     const {front, side, back, make,model,price, year, id} = car;
 
     const history = useHistory();
@@ -14,6 +14,8 @@ function CarCard({car}){
 
     let thousands = '';
     let hundreds = '';
+
+    
 
     function getDollars(price){
         if(price.toString().length === 5){
@@ -32,6 +34,7 @@ function CarCard({car}){
     getDollars(price);
 
 
+
     // Set the Text to Appear When the Button is Hovered Over
     const[hoverText, setHoverText] = useState(false);
 
@@ -48,7 +51,7 @@ function CarCard({car}){
         }
         setFormData(editData);
         console.log(editKey);
-    history.push('/edit')
+    history.push(`/edit/${make}-${model}`)
     }
 
     return(
@@ -100,6 +103,8 @@ function CarCard({car}){
                    <span style={{fontStyle: 'italic'}} > Price: </span>${`${thousands},${hundreds}  `}  
                     <i className="bi bi-tag"></i>
                 </span>
+                <br/>
+                <Button variant = 'outline-secondary' size='sm' style={{marginTop: 5}} type='button' onClick = {()=>onDelete(car)} > Delete</Button>
             </Card.Body>
         </Card>
         </div>

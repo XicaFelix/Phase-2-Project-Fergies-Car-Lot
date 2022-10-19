@@ -6,7 +6,7 @@ import CarContainer from "./CarContainer";
 
 function Home(){
   const [cars, setCars] = useState([]);
-  const [sortTerm, setSortTerm] = useState('All');
+  const [sortTerm, setSortTerm] = useState('');
   const [sortedCars, setSortedCars] = useState([]);
   const [search, setSearch] = useState([''])
   let newCars=[];
@@ -22,7 +22,7 @@ function Home(){
 // Allows the user to sort the cars by make, model, price, and year
 function handleCategoryChange(category){
   console.log(category); 
-   newCars = cars.sort((car1, car2)=>{
+   newCars = [...cars].sort((car1, car2)=>{
       if(category.toLowerCase() === 'price'){
         return(car1.price - car2.price)
       } if (category.toLowerCase() === 'year'){
@@ -44,18 +44,29 @@ function handleCategoryChange(category){
       }
   })
   console.log('sorted cars 1', sortedCars);
-  setSortedCars((sortedCars)=>newCars);
+  // setSortedCars((sortedCars)=> sortedCars = newCars);
   return setSortedCars(newCars);
   
   }
-  console.log('Sorted Cars 2', sortedCars);
+  let searchedCars;
+  if(search === ''){
+    searchedCars = cars
+  }else{
+    searchedCars = cars.filter((car)=> car.make.toLowerCase().includes(search.toString().toLowerCase()))
+  }
+  console.log('Search Result', searchedCars);
  
+
+function handleDelete(item){
+  const deleteCars = sortedCars.filter((car)=> car.id !== item.id)
+  setSortedCars(deleteCars);
+  console.log('Delete this', sortedCars)
+}
 
   return(
     <div>
-      <Header sortTerm={sortTerm} setSortTerm={setSortTerm} handleCategoryChange = {handleCategoryChange}/>
-      {/* <CarContainer cars={sortedCars}/> */}
-      {sortTerm === 'All'? ( <CarContainer cars= {cars}/>): (<CarContainer cars={sortedCars} key={sortedCars.id}/>) }
+      <Header sortTerm={sortTerm} setSortTerm={setSortTerm} handleCategoryChange = {handleCategoryChange} search={search} onSearch={setSearch}/>
+      <CarContainer cars={searchedCars} onDelete={handleDelete}/>
       
     </div>
   )
